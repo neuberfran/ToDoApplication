@@ -19,9 +19,14 @@ interface APIService {
     fun getToDoList(): Observable<GetToDoListAPIResponse>
 
     @POST(Constants.EDIT_TODO)
+   
     fun editTodo(
-            @Body todo:String
-    ): Observable<BaseAPIResponse>
+            @Field("todo_id") todoID:String,
+            @Body todo_id:String,
+
+            @Field("todo") todo:String
+
+    ):Observable<BaseAPIResponse>
 
     @POST(Constants.ADD_TODO)
     fun addTodo(@Body todo:String): Observable<BaseAPIResponse>
